@@ -1,0 +1,16 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+                             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id = "employee" class = "com.spring.beans.Employee">
+        <constructor-arg value = "12345" />
+        <constructor-arg value = "Nikhil Ruhela" />
+        <constructor-arg ref = "department" />
+    </bean>
+
+    <bean id = "department" class = "com.spring.beans.Department">
+        <property name = "deptName" value = "Information Technology" />
+    </bean>
+</beans>
