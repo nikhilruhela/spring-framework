@@ -10,17 +10,17 @@ public class SpringApplication {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-beans-annotation-di.xml");
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-beans-autowiring.xml");
 
 		/**
 		 * Use this employee creation, when using other spring bean configuration file except (spring-beans-annotation-di)
 		 */
-		//Employee employee = applicationContext.getBean("employee", Employee.class);
+		Employee employee = applicationContext.getBean("employee", Employee.class);
 
 		/**
 		 * Use this employee creation, when using spring bean configuration file (spring-beans-annotation-di)
 		 */
-		com.spring.beans.autowiredbeans.Employee employee = applicationContext.getBean("employee", com.spring.beans.autowiredbeans.Employee.class);
+		//com.spring.beans.autowiredbeans.Employee employee = applicationContext.getBean("employee", com.spring.beans.autowiredbeans.Employee.class);
 		System.out.println(employee);
 
 		((ConfigurableApplicationContext)applicationContext).close();

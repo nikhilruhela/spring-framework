@@ -1,16 +1,33 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-<beans xmlns = "http://www.springframework.org/schema/beans"
-       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation = "http://www.springframework.org/schema/beans
-                             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id = "employee" class = "com.spring.beans.Employee" autowire = "byName">
+    <bean id = "employee" class = "com.spring.beans.Employee" autowire = "constructor">
         <property name = "empId" value = "1234" />
         <property name = "empName" value = "Nikhil Ruhela" />
     </bean>
-
+    
     <bean id = "department" class = "com.spring.beans.Department">
         <property name = "deptName" value = "Information Technology" />
     </bean>
+    
     <!-- autowire modes = byName, byType, constructor -->
+
+    <!-- Use this to test constructor based dependency injection when there multiple beans of same type.
+    
+         If there are multiple beans of same type then there occurs an ambiguity for the spring container to decide
+         which dependency to inject. In that case Spring container also try to resolve dependency using "byName" i.e
+         if any of the defined bean name in configuration file matches with bean property name then that bean is
+         injected, no exception would be thrown.
+         However, if still the dependency couldn't be resolved then the dependency is set to null.   
+         
+        <bean id = "department1" class = "com.spring.beans.Department">
+            <property name = "deptName" value = "Computer Science" />
+        </bean> 
+     -->
 </beans>

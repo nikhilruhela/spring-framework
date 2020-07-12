@@ -13,7 +13,7 @@ public class Employee {
 	public Employee(Department department) {
 		this.department = department;
 		
-		System.out.println("Employee created via department parameterised constructor");
+		System.out.println("Employee created via parameterised constructor");
 	}
 
 	public Employee(int empId, String empName, Department department) {
