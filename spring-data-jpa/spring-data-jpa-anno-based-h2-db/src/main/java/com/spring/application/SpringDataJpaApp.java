@@ -21,10 +21,10 @@ public class SpringDataJpaApp {
 
 		personService = applicationContext.getBean(PersonService.class);
 		
-		Person person1 = createPerson("Nikhil", "Ruhela", 28);
-		Person person2 = createPerson("Shivani", "Ruhela", 26);
-		Person person3 = createPerson("Nikita", "Ruhela", 20);
-		Person person4 = createPerson("Manorma", "Devi", 48);
+		Person person1 = createPerson("Gavin", "King", 28);
+		Person person2 = createPerson("Narendra", "Modi Ji", 26);
+		Person person3 = createPerson("Mark", "Zukerberg", 20);
+		Person person4 = createPerson("Sundar", "Pichai", 48);
 
 		/**
 		 * Persist all persons
