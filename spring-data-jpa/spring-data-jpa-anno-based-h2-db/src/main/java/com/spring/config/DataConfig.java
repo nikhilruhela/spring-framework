@@ -2,9 +2,10 @@ package com.spring.config;
 
 import java.util.Properties;
 
+import javax.persistence.spi.PersistenceProvider;
 import javax.sql.DataSource;
 
-import org.hibernate.ejb.HibernatePersistence;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -40,10 +41,16 @@ public class DataConfig {
 	LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean lfb = new LocalContainerEntityManagerFactoryBean();
 		lfb.setDataSource(h2TestDataSource());
-		lfb.setPersistenceProviderClass(HibernatePersistence.class);
+		lfb.setPersistenceProvider(persistenceProvider());
 		lfb.setPackagesToScan("com.spring.model");
 		lfb.setJpaProperties(hibernateProps());
 		return lfb;
+	}
+
+	@Bean
+	public PersistenceProvider persistenceProvider()
+	{
+		return new HibernatePersistenceProvider();
 	}
 
 	@Bean

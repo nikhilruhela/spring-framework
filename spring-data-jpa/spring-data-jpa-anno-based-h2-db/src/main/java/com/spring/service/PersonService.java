@@ -2,6 +2,7 @@ package com.spring.service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,13 +28,13 @@ public class PersonService {
 	}
 
 	@Transactional
-	public Person getById(Long id) {
-		return personRepository.findOne(id);
+	public Optional<Person> getById(Long id) {
+		return personRepository.findById(id);
 	}
 
 	@Transactional
 	public void deletePerson(Long personId) {
-		personRepository.delete(personId);
+		personRepository.deleteById(personId);
 	}
 
 	@Transactional
