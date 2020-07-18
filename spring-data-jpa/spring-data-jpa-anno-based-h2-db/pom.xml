@@ -8,7 +8,7 @@
   
   <properties>
 		<spring.framework.version>4.3.0.RELEASE</spring.framework.version>
-		<serializer.version>2.8.1</serializer.version>
+		<serializer.version>2.9.10.5</serializer.version>
 		<spring.data.jpa.version>1.3.4.RELEASE</spring.data.jpa.version>
 		<hibernate.manager.version>3.6.10.Final</hibernate.manager.version>
 		<java.servlet.version>3.1.0</java.servlet.version>
