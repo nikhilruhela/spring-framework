@@ -12,13 +12,11 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<cglib.version>2.2.2</cglib.version>
 		<spring.framework.version>5.2.7.RELEASE</spring.framework.version>
-		<serializer.version>2.11.1</serializer.version>
 		<spring.data.jpa.version>2.3.1.RELEASE</spring.data.jpa.version>
 		<hibernate.manager.version>5.4.18.Final</hibernate.manager.version>
-		<java.servlet.version>4.0.1</java.servlet.version>
 		<h2.db.version>1.4.200</h2.db.version>
+		<serializer.version>2.11.1</serializer.version>
 	</properties>
 
 	<dependencies>
@@ -57,23 +55,7 @@
             <version>${h2.db.version}</version>
             <scope>runtime</scope>
         </dependency>
-
-		<!-- CGLib for @Configuration -->
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib-nodep</artifactId>
-			<version>${cglib.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-
-        <!-- Java Servlet Api -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${java.servlet.version}</version>
-            <scope>provided</scope>
-        </dependency>
-      
+        
         <!-- Jackson Databind : General data-binding functionality for Jackson: works on core streaming API -->
         <dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
