@@ -12,14 +12,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -55,16 +51,31 @@ public class DataConfig {
 
 	@Bean
 	public DataSource h2TestDataSource(){
-	   EmbeddedDatabase dataSource = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).build();
-	   
-	    Resource initSchema = new ClassPathResource("scripts/schema.sql");
-	    Resource initData = new ClassPathResource("scripts/data.sql");
-	    ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
-	    resourceDatabasePopulator.addScript(initSchema);
-	    //resourceDatabasePopulator.addScript(initData);
-	    DatabasePopulatorUtils.execute(resourceDatabasePopulator, dataSource);
+	   EmbeddedDatabase dataSource = new EmbeddedDatabaseBuilder()
+			           .setType(EmbeddedDatabaseType.H2)
+			           .addScript("scripts/schema.sql")
+                       /**
+                        * Add this script if you need to insert some test data in H2
+                        * 
+                        * .addScript("scripts/data.sql")
+                        */
+			           .build();
+
+	   /**
+	     This piece of code generates schema and insert data in embedded database, but as such
+	     not need because if we add scripts file directly to EmbeddedDatabaseBuilder, it will
+	     automatically use those script files to generate schema and insert data in embedded
+	     H2 database.
+
+	     Resource initSchema = new ClassPathResource("scripts/schema.sql");
+	     Resource initData = new ClassPathResource("scripts/data.sql");
+ 	     ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
+	     resourceDatabasePopulator.addScript(initSchema);
+	     //resourceDatabasePopulator.addScript(initData);
+	     DatabasePopulatorUtils.execute(resourceDatabasePopulator, dataSource);
+	    */
 	    
-	    return dataSource;
+	   return dataSource;
 	}
 
 	Properties hibernateProps() {

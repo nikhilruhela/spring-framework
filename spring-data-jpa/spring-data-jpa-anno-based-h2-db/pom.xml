@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.myprojects.springframework.springdatajpa</groupId>
@@ -7,11 +8,11 @@
   <description>Spring Data JPA project annotation based, using H2 embedded database.</description>
   
   <properties>
+        <java.version>1.8</java.version>
 		<spring.framework.version>5.2.7.RELEASE</spring.framework.version>
-		<serializer.version>2.11.1</serializer.version>
 		<spring.data.jpa.version>2.3.1.RELEASE</spring.data.jpa.version>
 		<hibernate.manager.version>5.4.18.Final</hibernate.manager.version>
-		<java.servlet.version>4.0.1</java.servlet.version>
+		<h2.db.version>1.4.200</h2.db.version>
   </properties>
 	
   <dependencies>
@@ -40,24 +41,9 @@
       <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.200</version>
+            <version>${h2.db.version}</version>
             <scope>runtime</scope>
       </dependency>
-
-      <!-- Java Servlet Api -->
-      <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${java.servlet.version}</version>
-            <scope>provided</scope>
-      </dependency>
-      
-      <!-- Jackson Databind : General data-binding functionality for Jackson: works on core streaming API -->
-      <dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${serializer.version}</version>
-	  </dependency>
   </dependencies>
   
   <build>
@@ -67,8 +53,8 @@
               <artifactId>maven-compiler-plugin</artifactId>
               <version>3.5.1</version>
               <configuration>
-                  <source>1.8</source>
-                  <target>1.8</target>
+                  <source>${java.version}</source>
+                  <target>${java.version}</target>
               </configuration>
           </plugin>
       </plugins>
