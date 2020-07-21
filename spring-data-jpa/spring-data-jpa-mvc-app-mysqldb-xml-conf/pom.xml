@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.myprojects.springframework.springdatajpa</groupId>
+	<artifactId>spring-data-jpa-mvc-app-mysqldb-xml-conf</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>Spring Data JPA Project MVC Application with MySql Database</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<spring.framework.version>5.2.7.RELEASE</spring.framework.version>
+		<spring.data.jpa.version>2.3.1.RELEASE</spring.data.jpa.version>
+		<hibernate.manager.version>5.4.18.Final</hibernate.manager.version>
+		<serializer.version>2.11.1</serializer.version>
+		<mysql.connector.version>8.0.21</mysql.connector.version>
+		<commons.dbcp.version>1.4</commons.dbcp.version>
+	</properties>
+
+	<dependencies>
+		<!-- Spring Context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+        
+        <!-- Spring MVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<!-- Spring Data Jpa -->
+	    <dependency>
+		  	<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring.data.jpa.version}</version>
+	    </dependency>
+
+        <!-- Hibernate EntityManager -->
+        <dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.manager.version}</version>
+        </dependency>
+
+        <!-- MySql Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- commons-dbcp library for datasource 'org.apache.commons.dbcp.BasicDataSource' -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${commons.dbcp.version}</version>
+        </dependency>
+
+        <!-- Jackson Databind : General data-binding functionality for Jackson: works on core streaming API -->
+        <dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${serializer.version}</version>
+	    </dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>springsource-milestones</id>
+			<name>SpringSource Milestones Proxy</name>
+			<url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>spring-mvc-crud-app-mysqldb-xml-conf</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
