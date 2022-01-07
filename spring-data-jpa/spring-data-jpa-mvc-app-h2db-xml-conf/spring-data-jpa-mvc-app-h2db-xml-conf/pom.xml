@@ -15,7 +15,7 @@
 		<spring.framework.version>5.2.7.RELEASE</spring.framework.version>
 		<spring.data.jpa.version>2.3.1.RELEASE</spring.data.jpa.version>
 		<hibernate.manager.version>5.4.18.Final</hibernate.manager.version>
-		<h2.db.version>1.4.200</h2.db.version>
+		<h2.db.version>2.0.206</h2.db.version>
 		<serializer.version>2.11.1</serializer.version>
 	</properties>
 
